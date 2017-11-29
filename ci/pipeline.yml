@@ -1,28 +1,31 @@
 ---
+
+jobs:
+- name: deployment
+  plan:
+  - get: resource-git
+    trigger: true
+  - put: resource-pcf
+    params:
+      manifest: resource-git/manifest.yml
+      path: resource-git
+      current_app_name: ((app-name))
+
+##############################
 resources:
+# GIT
 - name: resource-git
   type: git
   source:
     uri: https://github.com/brightzheng100/cf-sample-app-spring
     branch: master
-
-jobs:
-- name: deployment
-  max_in_flight: 1
-  plan:
-  - get: resource-git
-    trigger: true
-
-  - task: deploy-to-pcf
-    file: resource-git/ci/tasks/deploy.yml
-    params:
-      app_name: ((app-name))
-      app_host: ((app-host))
-      domain: ((pcf-domain))
-      manifest: manifest.yml
-      api: ((pcf-api))
-      username: ((pcf-username))
-      password: ((pcf-password))
-      organization: ((pcf-organization))
-      space: ((pcf-space))
-      skip_cert_check: true
+# CF
+- name: resource-pcf
+  type: cf
+  source:
+    api: ((pcf-api))
+    username: ((pcf-username))
+    password: ((pcf-password))
+    organization: ((pcf-organization))
+    space: ((pcf-space))
+    skip_cert_check: true

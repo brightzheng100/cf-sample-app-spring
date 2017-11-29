@@ -188,6 +188,7 @@
                   <input type="button" id="killme" value="Kill Me"></input>
                   <script language="javascript">
                     $('#killme').on('click', function(e) {
+                      $('#action-msg').text("Killing the accessing AI...");
                       $.ajax({
                         url: '/killme',
                         dataType: 'html'

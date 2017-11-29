@@ -39,7 +39,7 @@ class Application {
 	@RequestMapping("/health")
 	@ResponseBody
 	public String health() {
-		return "Healthy:" + new Date()
+		return "Healthy: " + new Date()
 	}
 
 	@RequestMapping("/killme")
