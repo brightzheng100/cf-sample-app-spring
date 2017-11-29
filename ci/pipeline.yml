@@ -18,7 +18,8 @@ jobs:
     params:
       current_app_name: cf101-demo
       host: cf101-demo
-      manifest: resource-git/manifest.yml
+      domain: ((pcf-domain))
+      manifest: manifest.yml
       api: ((pcf-api))
       username: ((pcf-username))
       password: ((pcf-password))
