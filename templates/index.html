@@ -185,12 +185,12 @@
                   <span class="type-ellipsis">Extra Lifecycle Management Buttons</span>
                 </div>
                 <div class="type-ellipsis">
-                  <input type="button" name="killme" value="Kill Me" onlick="killme();"></input>
+                  <input type="button" name="killme" value="Kill Me" onlick="javascript:killme();"></input>
                   <script language="javascript">
                     function killme(){
                       $.ajax({
                         url: '/killme',
-                        dataType: 'text'
+                        dataType: 'html'
                       });
                     }
                   </script>
