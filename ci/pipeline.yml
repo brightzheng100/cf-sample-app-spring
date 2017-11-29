@@ -16,8 +16,8 @@ jobs:
   - task: deploy-to-pws
     file: resource-git/ci/tasks/deploy.yml
     params:
-      current_app_name: cf101-demo
-      host: cf101-demo
+      app_name: ((app-name))
+      app_host: ((app-host))
       domain: ((pcf-domain))
       manifest: manifest.yml
       api: ((pcf-api))
