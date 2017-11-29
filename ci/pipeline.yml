@@ -13,7 +13,7 @@ jobs:
   - get: resource-git
     trigger: true
 
-  - task: deploy-to-pws
+  - task: deploy-to-pcf
     file: resource-git/ci/tasks/deploy.yml
     params:
       app_name: ((app-name))

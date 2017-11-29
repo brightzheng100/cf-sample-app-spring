@@ -190,17 +190,16 @@
                     $('#killme').on('click', function(e) {
                       $.ajax({
                         url: '/killme',
-                        dataType: 'html',
-                        success:function(responsedata){
-                          $('#action-msg').text = "Executed:" + new Date();
-                        }
+                        dataType: 'html'
+                      }).done(function( data ) {
+                        $('#action-msg').text = "Executed:" + new Date();
                       });
                     });
                   </script>
                 </div>
               </div>
               <div class="col-xs-9 col-sm-6 col-md-6 col-lg-6 ptl txt-r type-ellipsis">
-                <span id="action-msg" class="small txt-m"></span>
+                <span id="action-msg" class="small txt-m">...</span>
               </div>
             </div>
           </li>
