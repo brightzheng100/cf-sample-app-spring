@@ -191,7 +191,7 @@
                       $.ajax({
                         url: '/killme',
                         dataType: 'html'
-                      }).done(function( data ) {
+                      }).always(function( data ) {
                         $('#action-msg').text = "Executed:" + new Date();
                       });
                     });
