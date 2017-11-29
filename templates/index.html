@@ -185,21 +185,22 @@
                   <span class="type-ellipsis">Extra Lifecycle Management Buttons</span>
                 </div>
                 <div class="type-ellipsis">
-                  <input type="button" name="killme" value="Kill Me" onlick="javascript:killme();"></input>
+                  <input type="button" id="killme" value="Kill Me"></input>
                   <script language="javascript">
-                    function killme(){
+                    $('#killme').on('click', function(e) {
                       $.ajax({
                         url: '/killme',
-                        dataType: 'html'
+                        dataType: 'html',
+                        success:function(responsedata){
+                          $('#killme').text = "Executed:" + new Date();
+                        }
                       });
-                    }
+                    });
                   </script>
                 </div>
               </div>
               <div class="col-xs-9 col-sm-6 col-md-6 col-lg-6 ptl txt-r type-ellipsis">
-                <a href='https://docs.cloudfoundry.org/concepts/roles.html' target='_blank' class='type-accent-4'>
-                  <span class="small txt-m">Orgs &amp; Spaces</span><span class="fa fa-icon fa-external-link plm txt-m small"></span>
-                </a>
+                <span id="msg" class="small txt-m"></span>
               </div>
             </div>
           </li>
