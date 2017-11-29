@@ -2,6 +2,7 @@
 
 import org.springframework.core.env.*
 import com.fasterxml.jackson.databind.*
+import java.util.Date
 
 @Controller
 class Application {
@@ -33,6 +34,17 @@ class Application {
 			model.addAttribute("cfservice", new LinkedHashMap())
 		}
 		return "index"
+	}
+
+	@RequestMapping("/health")
+	@ResponseBody
+	public String health() {
+		return "Healthy:" + new Date()
+	}
+
+	@RequestMapping("/killme")
+	public void killme() {
+		System.exit(-1)
 	}
 
 }
