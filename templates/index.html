@@ -182,7 +182,7 @@
               </div>
               <div class="col-xs-12 col-sm-15 col-md-15 col-lg-15">
                 <div class="type-neutral-4 small">
-                  <span class="type-ellipsis">Extra Lifecycle Management Buttons</span>
+                  <span class="type-ellipsis">App Lifecycle Management</span>
                 </div>
                 <div class="type-ellipsis">
                   <input type="button" id="killme" value="Kill Me"></input>
@@ -192,7 +192,7 @@
                         url: '/killme',
                         dataType: 'html'
                       }).always(function( data ) {
-                        $('#action-msg').text("Executed:" + new Date());
+                        $('#action-msg').text("Executed: " + new Date());
                       });
                     });
                   </script>
