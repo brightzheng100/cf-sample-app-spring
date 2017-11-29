@@ -15,7 +15,7 @@ run:
   - -exc
   - |
     cd resource-git \
-    cf api ${api} --skip-ssl-validation \
+    && cf api ${api} --skip-ssl-validation \
     && cf login -u ${username} -p ${password} -o ${organization} -s ${space} \
     && cf rename ${current_app_name} ${current_app_name}-existing \
     && cf push ${current_app_name} -f ${manifest} --no-start \
