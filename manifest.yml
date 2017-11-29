@@ -1,6 +1,6 @@
 ---
 applications:
-- name: cf-spring
-  memory: 768M
+- name: cf101-demo
+  memory: 1G
   instances: 1
   random-route: true

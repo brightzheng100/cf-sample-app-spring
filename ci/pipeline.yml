@@ -1,0 +1,27 @@
+---
+resources:
+- name: resource-git
+  type: git
+  source:
+    uri: https://github.com/brightzheng100/cf-sample-app-spring
+    branch: master
+
+jobs:
+- name: deployment
+  max_in_flight: 1
+  plan:
+  - get: resource-git
+    trigger: true
+
+  - task: deploy-to-pws
+    file: resource-git/ci/tasks/deploy.yml
+    params:
+      current_app_name: cf101-demo
+      host: cf101-demo
+      manifest: resource-git/manifest.yml
+      api: ((pcf-api))
+      username: ((pcf-username))
+      password: ((pcf-password))
+      organization: ((pcf-organization))
+      space: ((pcf-space))
+      skip_cert_check: true
